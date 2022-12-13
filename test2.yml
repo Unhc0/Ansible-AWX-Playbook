@@ -6,5 +6,5 @@
  
   - name: CentOS CrowdStrike
     shell: echo "Hi! Tower is working."
-    shell: cd /
-    shell: wget https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor_Ubuntu_amd64.deb
+    cd /
+    wget https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor_Ubuntu_amd64.deb
