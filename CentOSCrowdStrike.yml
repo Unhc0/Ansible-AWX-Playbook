@@ -4,6 +4,10 @@
  
   tasks:
   - name: CentOS CrowdStrike
-    shell: echo "Hi! Tower is working."
+    shell:
+    - echo "Hi! Tower is working."
     - cd /
-    - wget https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor_Ubuntu_amd64.deb
+    - sudo yum install -y https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor-RHEL-CENTOS-ORACLE7.rpm
+    - sudo /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60
+    - sudo systemctl start falcon-sensor
+    - ps -e | grep falcon-sensor
