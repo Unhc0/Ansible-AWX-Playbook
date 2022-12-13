@@ -5,20 +5,20 @@
  
   tasks:    # 任务
 
-  - name: 任务开始    #自定义名称
+  - name: 任务开始
     shell: echo "任务开始"
 
-  - name: 进入根目录    #自定义名称
-    shell: cd /
-
-  - name: 下载falcon-sensor的rpm包    #自定义名称
+  - name: 下载并安装falcon-sensor包
     shell: sudo yum install -y https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor-RHEL-CENTOS-ORACLE7.rpm
 
-  - name: 设置cid    #自定义名称
+  - name: 设置cid
     shell: sudo /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60
 
-  - name: 启动falcon-sensor    #自定义名称
+  - name: 启动falcon-sensor
     shell: sudo systemctl start falcon-sensor
+    
+  - name: 删除安装包
+    shell: sudo rm -f falcon-sensor_Ubuntu_amd64.deb
 
-  - name: 显示进程信息    #自定义名称
+  - name: 显示进程信息
     shell: ps -e | grep falcon-sensor
