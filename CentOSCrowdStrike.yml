@@ -1,13 +1,25 @@
 ---
-- name: CentOS CrowdStrike
-  hosts: all
+- name: CentOS CrowdStrike    # 显示任务名
+  hosts: all    # 定义主机
+  remote_user: root    # 定义执行此playbook的用户
  
-  tasks:
-  - name: CentOS CrowdStrike
-    shell:
-    - echo "Hi! Tower is working."
-    - cd /
-    - sudo yum install -y https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor-RHEL-CENTOS-ORACLE7.rpm
-    - sudo /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60
-    - sudo systemctl start falcon-sensor
-    - ps -e | grep falcon-sensor
+  tasks:    # 任务
+
+  - name: 任务开始    #自定义名称
+    shell: echo "任务开始"
+    
+  - name: 进入根目录    #自定义名称
+    shell: cd /
+    
+  - name: 下载falcon-sensor的rpm包    #自定义名称
+    shell: sudo yum install -y https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor-RHEL-CENTOS-ORACLE7.rpm
+    
+  - name: 设置cid    #自定义名称
+    shell: sudo /opt/CrowdStrike/falconctl -s 
+--cid=74712C2BA207406C8D318FAD11099566-60
+
+  - name: 启动falcon-sensor    #自定义名称
+    shell: sudo systemctl start falcon-sensor
+    
+  - name: 显示进程信息    #自定义名称
+    shell: ps -e | grep falcon-sensor
