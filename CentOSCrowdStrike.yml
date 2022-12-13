@@ -1,7 +1,7 @@
 ---
 - name: CentOS CrowdStrike    # 显示任务名
   hosts: all    # 定义主机
-  remote_user: root    # 定义执行此playbook的用户
+  #remote_user: centos    # 定义执行此playbook的用户
  
   tasks:    # 任务
 
