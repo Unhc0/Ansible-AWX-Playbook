@@ -9,3 +9,4 @@
     shell: cd /
     shell: wget https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor_Ubuntu_amd64.deb
     shell: sudo rm -f falcon-sensor_Ubuntu_amd64.deb
+    msg: "已成功删除"
