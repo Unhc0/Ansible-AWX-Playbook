@@ -12,4 +12,4 @@
   - name: 下载falcon-sensor包
     shell: 
       chdir: /
-      cmd:wget https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor_Ubuntu_amd64.deb
+      cmd: wget https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor_Ubuntu_amd64.deb
