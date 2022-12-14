@@ -3,7 +3,7 @@
   hosts: all
  
   tasks:
- 
+
   - name: 任务开始    #自定义名称
     shell: echo "任务开始"
     shell: cd /
