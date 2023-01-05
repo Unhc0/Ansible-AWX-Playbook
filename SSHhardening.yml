@@ -44,7 +44,7 @@
         name: https://miller-s3.s3.cn-north-1.amazonaws.com.cn/CrowdStrike/Linux/falcon-sensor-RHEL-CENTOS-ORACLE7.rpm
 
     - name: Activate Falcon sensor
-      shell: sudo /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60
+      command: /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60
 
     - name: Download and install agent installer
       get_url:
@@ -57,8 +57,8 @@
         path: /tmp/agent_installer.sh
         mode: 0755
       become: true
-      notify:
-        - start agent-installer
+      #notify:
+      #  - start agent-installer
 
     - name: Start agent installer
       command: /tmp/agent_installer.sh install_start --token eu:07901a39-ec8c-4dea-89f9-affeb318719c
