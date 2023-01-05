@@ -45,8 +45,9 @@
 
     - name: Activate Falcon sensor
       command: /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60
-      notify:
-        - start falcon-sensor
+      
+    - name: Start Falcon sensor
+      shell: systemctl start falcon-sensor
 
     - name: Download and install agent installer
       get_url:
