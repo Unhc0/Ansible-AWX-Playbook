@@ -3,35 +3,33 @@
   hosts: all
   become: true
   tasks:
-    - name: Modify /etc/sysctl.conf
+    - name: Ensure sysctl settings are present
       lineinfile:
         path: /etc/sysctl.conf
-        regexp: "^net\.ipv4\.conf\.(all|default)\.accept_redirects"
-        line: "net.ipv4.conf.\1.accept_redirects=0"
-      notify:
-        - restart network
+        regexp: '^net.ipv4.conf.all.accept_redirects='
+        line: 'net.ipv4.conf.all.accept_redirects=0'
+      become: true
 
-    - name: Modify /etc/sysctl.conf
+    - name: Ensure sysctl settings are present
       lineinfile:
         path: /etc/sysctl.conf
-        regexp: "^net\.ipv4\.conf\.(all|default)\.secure_redirects"
-        line: "net.ipv4.conf.\1.secure_redirects=0"
-      notify:
-        - restart network
+        regexp: '^net.ipv4.conf.default.accept_redirects='
+        line: 'net.ipv4.conf.default.accept_redirects=0'
+      become: true
 
-    - name: Modify /etc/securetty
+    - name: Ensure sysctl settings are present
       lineinfile:
-        path: /etc/securetty
-        line: "tty[0-9]*"
-      notify:
-        - restart network
+        path: /etc/sysctl.conf
+        regexp: '^net.ipv4.conf.all.secure_redirects='
+        line: 'net.ipv4.conf.all.secure_redirects=0'
+      become: true
 
-    - name: Modify /etc/securetty
+    - name: Ensure sysctl settings are present
       lineinfile:
-        path: /etc/securetty
-        line: "vc[0-9]*"
-      notify:
-        - restart network
+        path: /etc/sysctl.conf
+        regexp: '^net.ipv4.conf.default.secure_redirects='
+        line: 'net.ipv4.conf.default.secure_redirects=0'
+      become: true
 
     - name: Modify /etc/ssh/sshd_config
       lineinfile:
