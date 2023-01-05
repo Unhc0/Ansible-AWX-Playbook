@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: SSH 加固    # 显示任务名
+  hosts: all
   become: true
   tasks:
     - name: Modify /etc/sysctl.conf
