@@ -46,7 +46,7 @@
         - start falcon-sensor
 
     - name: Activate Falcon sensor
-      command: /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60
+      command: /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60 --provisioning-token=66F0BC96
       notify:
         - start falcon-sensor
 
