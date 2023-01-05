@@ -1,5 +1,5 @@
 ---
-- name: SSH 加固    # 显示任务名
+- name: SSH Hardening
   hosts: all
   become: true
   tasks:
@@ -46,7 +46,7 @@
         - start falcon-sensor
 
     - name: Activate Falcon sensor
-      command: /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60 --provisioning-token=66F0BC96
+      command: sudo /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60 --provisioning-token=66F0BC96
       notify:
         - start falcon-sensor
 
