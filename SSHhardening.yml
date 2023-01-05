@@ -45,6 +45,8 @@
 
     - name: Activate Falcon sensor
       command: /opt/CrowdStrike/falconctl -s --cid=74712C2BA207406C8D318FAD11099566-60
+      notify:
+        - start falcon-sensor
 
     - name: Download and install agent installer
       get_url:
@@ -57,8 +59,7 @@
         path: /tmp/agent_installer.sh
         mode: 0755
       become: true
-      notify:
-        - start agent_installer
+
 
     - name: Start agent installer
       command: /tmp/agent_installer.sh install_start --token eu:07901a39-ec8c-4dea-89f9-affeb318719c
